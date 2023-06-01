@@ -3,17 +3,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import Search from './components/Search';
 
-const handleSearchSubmit = (e) => {
-  e.preventDefault();
-  console.log(e.target[0].value)
-}
+
 
 const App = () => {
-  const [word, setWord] = useState('')
+  const [word, setWord] = useState('');
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    console.log(word);
+  }
+
   return (
     <div>
       <Header title="Images Gallery"> </Header>
-      <Search handleSubmit={handleSearchSubmit}/>
+      <Search word={word} setWord={setWord} handleSubmit={handleSearchSubmit}/>
     </div>
   );
 }
